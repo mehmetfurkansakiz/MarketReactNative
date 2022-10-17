@@ -12,13 +12,14 @@
   "dependencies": {
     "@react-navigation/native": "*",
     "@react-navigation/native-stack": "^6.9.0",
-    "axios": "^1.1.2",
+    "axios": "^0.26.1",
     "react": "18.1.0",
-    "react-native": "0.70.2",
+    "react-native": "^0.70.3",
     "react-native-config": "^1.4.6",
     "react-native-dotenv": "^3.3.1",
     "react-native-safe-area-context": "*",
-    "react-native-screens": "*"
+    "react-native-screens": "*",
+    "yarn": "^1.22.19"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
