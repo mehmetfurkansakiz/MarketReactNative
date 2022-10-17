@@ -5,9 +5,10 @@ import styles from './ProductCard.style';
 const ProductCard = ({product}) => {
   return (
     <View style={styles.container}>
-      <Image style={styles.image} source={{uri: product.image}} />
+      <Image style={styles.image} source={{uri: product.thumbnail}} />
       <View style={styles.body_container}>
         <Text style={styles.title}>{product.title}</Text>
+        <Text style={styles.description}>{product.description}</Text>
         <Text style={styles.price}>{product.price} $</Text>
       </View>
     </View>
@@ -16,13 +17,19 @@ const ProductCard = ({product}) => {
 
 export default ProductCard;
 
-// 0
 // id	1
-// title	"Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops"
-// price	109.95
-// description	"Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday"
-// category	"men's clothing"
-// image	"https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
-// rating
-// rate	3.9
-// count	120
+// title	"iPhone 9"
+// description	"An apple mobile which is nothing like apple"
+// price	549
+// discountPercentage	12.96
+// rating	4.69
+// stock	94
+// brand	"Apple"
+// category	"smartphones"
+// thumbnail	"https://dummyjson.com/image/i/products/1/thumbnail.jpg"
+// images
+// 0	"https://dummyjson.com/image/i/products/1/1.jpg"
+// 1	"https://dummyjson.com/image/i/products/1/2.jpg"
+// 2	"https://dummyjson.com/image/i/products/1/3.jpg"
+// 3	"https://dummyjson.com/image/i/products/1/4.jpg"
+// 4	"https://dummyjson.com/image/i/products/1/thumbnail.jpg"
