@@ -17,6 +17,7 @@ export default StyleSheet.create({
   body_container: {
     flex: 1,
     padding: 5,
+    justifyContent: 'space-around',
   },
   title: {
     color: 'black',
