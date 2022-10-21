@@ -10,9 +10,26 @@ const Stack = createNativeStackNavigator();
 const Router = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{headerShown: false}}>
-        <Stack.Screen name="ProductsPage" component={Products} />
-        <Stack.Screen name="DetailPage" component={Detail} />
+      <Stack.Navigator>
+        <Stack.Screen
+          name="ProductsPage"
+          component={Products}
+          options={{
+            title: 'Dükgan',
+            headerStyle: {backgroundColor: '#00186f'},
+            headerTitleStyle: {color: '#FFFFFF'},
+          }}
+        />
+        <Stack.Screen
+          name="DetailPage"
+          component={Detail}
+          options={{
+            title: 'Detay',
+            headerStyle: {backgroundColor: '#00186f'},
+            headerTitleStyle: {color: '#FFFFFF'},
+            headerTintColor: 'white',
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
