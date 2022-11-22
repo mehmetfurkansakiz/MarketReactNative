@@ -4,13 +4,22 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 import Products from './pages/Products/Products';
 import Detail from './pages/Detail/Detail';
-
+import Login from './pages/Login/Login';
 const Stack = createNativeStackNavigator();
 
 const Router = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+        <Stack.Screen
+          name="LoginPage"
+          component={Login}
+          options={{
+            title: 'Dükgan Login',
+            headerStyle: {backgroundColor: '#00186f'},
+            headerTitleStyle: {color: '#FFFFFF'},
+          }}
+        />
         <Stack.Screen
           name="ProductsPage"
           component={Products}
