@@ -2,13 +2,14 @@ import React from 'react';
 import {TextInput, View} from 'react-native';
 import styles from './Input.style';
 
-const Input = ({placeholder, onType}) => {
+const Input = ({placeholder, value, onType}) => {
   return (
     <View style={styles.container}>
       <TextInput
         placeholderTextColor={'black'}
         placeholder={placeholder}
         onChangeText={onType}
+        value={value}
       />
     </View>
   );

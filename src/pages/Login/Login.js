@@ -2,6 +2,7 @@ import React from 'react';
 import {SafeAreaView, View, Text, Image} from 'react-native';
 import Button from '../../components/Button';
 import Input from '../../components/input/Input';
+import {Formik} from 'formik';
 
 import styles from './Login.style';
 
@@ -15,11 +16,25 @@ const Login = () => {
         />
         <Text style={styles.logo_text}>DÜKGAN</Text>
       </View>
-      <View style={styles.body_container}>
-        <Input placeholder={'kullanici adinizi giriniz'} />
-        <Input placeholder={'sifrenizi giriniz'} />
-        <Button text="Giris Yap" />
-      </View>
+      <Formik
+        initialValues={{username: '', password: ''}}
+        onsubmit={formValues => console.log(formValues)}>
+        {({handleSubmit, handleChange, values}) => (
+          <View style={styles.body_container}>
+            <Input
+              placeholder={'kullanici adinizi giriniz'}
+              value={values.username}
+              onType={handleChange.username}
+            />
+            <Input
+              placeholder={'sifrenizi giriniz'}
+              value={values.password}
+              onType={handleChange.password}
+            />
+            <Button text="Giris Yap" onPress={handleSubmit} />
+          </View>
+        )}
+      </Formik>
     </SafeAreaView>
   );
 };
