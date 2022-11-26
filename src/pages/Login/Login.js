@@ -3,7 +3,6 @@ import {SafeAreaView, View, Text, Image} from 'react-native';
 import Button from '../../components/Button';
 import Input from '../../components/input/Input';
 import {Formik} from 'formik';
-
 import styles from './Login.style';
 
 const Login = () => {
@@ -24,12 +23,15 @@ const Login = () => {
             <Input
               placeholder={'kullanici adinizi giriniz'}
               value={values.username}
-              onType={handleChange.username}
+              onType={handleChange('username')}
+              iconName="account"
             />
             <Input
               placeholder={'sifrenizi giriniz'}
               value={values.password}
-              onType={handleChange.password}
+              onType={handleChange('password')}
+              iconName="key"
+              isSecure
             />
             <Button text="Giris Yap" onPress={handleSubmit} />
           </View>
