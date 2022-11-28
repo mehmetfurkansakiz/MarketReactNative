@@ -1,11 +1,42 @@
 import React from 'react';
-import {SafeAreaView, View, Text, Image} from 'react-native';
+import {SafeAreaView, View, Text, Image, Alert} from 'react-native';
 import Button from '../../components/Button';
 import Input from '../../components/input/Input';
 import {Formik} from 'formik';
 import styles from './Login.style';
+import * as Yup from 'yup';
+import usePost from '../../hooks/usePost';
+import Config from 'react-native-config';
+
+const ErrorMessagesSchema = Yup.object().shape({
+  username: Yup.string()
+    .min(2, 'Username must be min 2 characters long')
+    .max(20, 'Username must be max 20 characters long')
+    .required('Required'),
+  password: Yup.string()
+    .min(8, 'Password must be min 8 characters long')
+    .matches(/[0-9]/, 'Password requires a number')
+    .matches(/[a-z]/, 'Password requires a lowercase letter')
+    .matches(/[A-Z]/, 'Password requires an uppercase letter')
+    .matches(/[^\w]/, 'Password requires a symbol')
+    .required('Required'),
+});
 
 const Login = () => {
+  const {data, loading, error, post} = usePost();
+
+  function handleLogin(values) {
+    post(Config.API_AUTH_URL + '/login', values);
+  }
+
+  if (error) {
+    Alert.alert('DÜKGAN', 'User not found!');
+  }
+
+  if (data) {
+    console.log(data);
+  }
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.logo_container}>
@@ -17,8 +48,9 @@ const Login = () => {
       </View>
       <Formik
         initialValues={{username: '', password: ''}}
-        onsubmit={formValues => console.log(formValues)}>
-        {({handleSubmit, handleChange, values}) => (
+        onSubmit={handleLogin}
+        validationSchema={ErrorMessagesSchema}>
+        {({handleSubmit, handleChange, values, errors, touched, isValid}) => (
           <View style={styles.body_container}>
             <Input
               placeholder={'kullanici adinizi giriniz'}
@@ -26,6 +58,9 @@ const Login = () => {
               onType={handleChange('username')}
               iconName="account"
             />
+            {errors.username && touched.username && (
+              <Text style={styles.error_login}>{errors.username}</Text>
+            )}
             <Input
               placeholder={'sifrenizi giriniz'}
               value={values.password}
@@ -33,7 +68,10 @@ const Login = () => {
               iconName="key"
               isSecure
             />
-            <Button text="Giris Yap" onPress={handleSubmit} />
+            {errors.password && touched.password && (
+              <Text style={styles.error_login}>{errors.password}</Text>
+            )}
+            <Button text="Giris Yap" onPress={handleSubmit} loading={loading} />
           </View>
         )}
       </Formik>

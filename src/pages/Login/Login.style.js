@@ -28,5 +28,11 @@ export default StyleSheet.create({
     marginRight: 30,
     flexDirection: 'row',
   },
+  error_login: {
+    fontSize: 13,
+    color: '#d32f2f',
+    fontWeight: 'bold',
+    paddingLeft: 10,
+  },
   body_container: {},
 });
