@@ -1,14 +1,14 @@
 import React from 'react';
 import {View, Text, Image} from 'react-native';
 import useFetch from '../../hooks/useFetch';
-import {API_URL} from '@env';
+import {API_PRODUCT_URL} from '@env';
 import Loading from '../../components/Loading/Loading';
 import Error from '../../components/Error/Error';
 import styles from './Detail.style';
 
 const Detail = ({route}) => {
   const {id} = route.params;
-  const {loading, data, error} = useFetch(`${API_URL}/${id}`);
+  const {loading, data, error} = useFetch(`${API_PRODUCT_URL}/${id}`);
   console.log(id);
 
   if (loading) {
