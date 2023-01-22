@@ -11,7 +11,7 @@ export default StyleSheet.create({
   image: {
     width: 100,
     minHeight: 100,
-    resizeMode: 'contain',
+    resizeMode: 'cover',
     backgroundColor: 'white',
   },
   body_container: {

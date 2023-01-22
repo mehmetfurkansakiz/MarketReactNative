@@ -13,7 +13,7 @@ export default StyleSheet.create({
   image: {
     width: deviceSize.width,
     height: deviceSize.height / 3,
-    resizeMode: 'contain',
+    resizeMode: 'cover',
     backgroundColor: 'white',
   },
   title: {
