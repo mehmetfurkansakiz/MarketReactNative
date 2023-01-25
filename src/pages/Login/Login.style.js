@@ -34,5 +34,8 @@ export default StyleSheet.create({
     fontWeight: 'bold',
     paddingLeft: 10,
   },
-  body_container: {},
+  body_container: {
+    paddingLeft: 25,
+    paddingRight: 25,
+  },
 });
