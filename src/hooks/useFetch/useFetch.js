@@ -12,8 +12,8 @@ function useFetch(url) {
       setData(responseData);
       setLoading(false);
     } catch (err) {
-      setLoading(false);
       setError(err.message);
+      setLoading(false);
     }
   };
 
@@ -22,7 +22,7 @@ function useFetch(url) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  return {error, loading, data};
+  return {loading, data, error};
 }
 
 export default useFetch;

@@ -18,7 +18,7 @@ function usePost() {
     }
   };
 
-  return {error, loading, data, post};
+  return {data, loading, error, post};
 }
 
 export default usePost;
